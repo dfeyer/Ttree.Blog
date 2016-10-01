@@ -1,23 +1,30 @@
 {
-    "description": "ttree basic blog package",
-    "type": "typo3-flow-site",
-    "require": {
-        "typo3/neos": "*"
-    },
-    "suggest": {
-        "typo3/neos-seo": "*",
-        "typo3/typo3cr-search": "*",
-        "flowpack/elasticsearch-contentrepositoryadaptor": "*"
-    },
-    "name": "ttree/blog",
-    "autoload": {
-        "psr-4": {
-            "Ttree\\Blog\\": "Classes/"
-        }
-    },
-    "extra": {
-        "neos": {
-            "package-key": "Ttree.Blog"
-        }
+  "name": "ttree/blog",
+  "description": "The site package is an experiment to build an advanced blog system based on Neos CMS",
+  "type": "typo3-flow-site",
+  "keywords": [
+    "blog",
+    "neoscms",
+    "content curation",
+    "publishing"
+  ],
+  "license": "MIT",
+  "require": {
+    "typo3/neos": "^2.3.0"
+  },
+  "suggest": {
+    "typo3/neos-seo": "*",
+    "typo3/typo3cr-search": "*",
+    "flowpack/elasticsearch-contentrepositoryadaptor": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ttree\\Blog\\": "Classes/"
     }
+  },
+  "extra": {
+    "neos": {
+      "package-key": "Ttree.Blog"
+    }
+  }
 }
