@@ -1,0 +1,5 @@
+prototype(Ttree.Blog:Teaser) {
+    attributes {
+        class = 'teaser teaser__content'
+    }
+}

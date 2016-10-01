@@ -1,0 +1,3 @@
+prototype(Ttree.Blog:AccessNotAuthorized.Document) < prototype(Ttree.Blog:DefaultPage) {
+    body.templatePath = 'resource://Ttree.Blog/Private/Templates/Page/AccessNotAuthorized.html'
+}

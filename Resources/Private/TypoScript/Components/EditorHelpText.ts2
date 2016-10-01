@@ -1,0 +1,18 @@
+prototype(Ttree.Blog:EditorHelpText) < prototype(Fusion:Tag) {
+    tagName = 'div'
+
+    icon = 'exclamation-circle'
+    @context.icon = ${this.icon}
+
+    prefix = 'Need help ?'
+    @context.prefix = ${this.prefix}
+
+    attributes {
+        class = 'neos ttree-blog-backend-helptext'
+        style = 'background: #999; padding: 1em 1.4em; line-height: 1.2em;'
+    }
+
+    content.@process.prefix = ${'<b><i class="icon-' + icon + '"></i> ' + prefix + '</b> ' + value}
+
+    @if.onlyBackend = ${node.context.inBackend == true}
+}

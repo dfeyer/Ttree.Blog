@@ -1,0 +1,9 @@
+prototype(Ttree.Blog:Menu) < prototype(TYPO3.Neos:Menu) {
+    templatePath = 'resource://Ttree.Blog/Private/Templates/Components/Menu.html'
+
+    attributes {
+        class = 'nav navbar-nav navbar-right'
+    }
+
+    maximumLevels = 1
+}

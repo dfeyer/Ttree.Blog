@@ -1,0 +1,23 @@
+{
+    "description": "ttree basic blog package",
+    "type": "typo3-flow-site",
+    "require": {
+        "typo3/neos": "*"
+    },
+    "suggest": {
+        "typo3/neos-seo": "*",
+        "typo3/typo3cr-search": "*",
+        "flowpack/elasticsearch-contentrepositoryadaptor": "*"
+    },
+    "name": "ttree/blog",
+    "autoload": {
+        "psr-4": {
+            "Ttree\\Blog\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Ttree.Blog"
+        }
+    }
+}

@@ -1,0 +1,175 @@
+#
+# Document
+'Ttree.Blog:Document':
+  abstract: true
+  superTypes:
+    'TYPO3.Neos:Document': true
+    'Ttree.Blog:TitleMixin': true
+    'Ttree.Blog:LoglineMixin': true
+  ui:
+    inspector:
+      groups:
+        document:
+          label: i18n
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+
+#
+# BackendOnlyDocument
+'Ttree.Blog:BackendOnlyDocument':
+  abstract: true
+  superTypes:
+    'Ttree.Blog:Document': true
+    'Ttree.Blog:LoglineMixin': false
+
+#
+# Home
+'Ttree.Blog:Home':
+  superTypes:
+    'Ttree.Blog:Document': true
+  constraints:
+    nodeTypes:
+      'Ttree.Blog:Page': true
+      'Ttree.Blog:Section': true
+      '*': false
+  ui:
+    label: 'Home'
+    icon: 'icon-globe'
+
+#
+# Page
+'Ttree.Blog:Page':
+  superTypes:
+    'Ttree.Blog:Document': true
+  ui:
+    label: 'Page'
+    icon: 'icon-file-text-o'
+
+#
+# Section
+'Ttree.Blog:Section':
+  superTypes:
+    'Ttree.Blog:Document': true
+  constraints:
+    nodeTypes:
+      'Ttree.Blog:Year': true
+      '*': false
+  ui:
+    label: 'Section'
+    icon: 'icon-th-list'
+
+#
+# Tag
+'Ttree.Blog:Tag':
+  superTypes:
+    'Ttree.Blog:Document': true
+  constraints:
+    nodeTypes:
+      '*': false
+  ui:
+    label: 'Tag'
+    icon: 'icon-tag'
+
+#
+# Year
+'Ttree.Blog:Year':
+  superTypes:
+    'TYPO3.Neos:Shortcut': true
+  constraints:
+    nodeTypes:
+      'Ttree.Blog:Article': true
+      '*': false
+  ui:
+    label: 'Year'
+    icon: 'icon-calendar-o'
+  properties:
+    targetMode:
+      ui:
+        inspector:
+          group: ~
+    target:
+      ui:
+        inspector:
+          group: ~
+
+#
+# Article
+'Ttree.Blog:Article':
+  superTypes:
+    'Ttree.Blog:Document': true
+  childNodes:
+    main: ~
+  constraints:
+    nodeTypes:
+      '*': false
+  ui:
+    label: 'Article'
+    icon: 'icon-file-text'
+
+#
+# ArticleReference
+'Ttree.Blog:ArticleReference':
+  superTypes:
+    'TYPO3.Neos:Shortcut': true
+  constraints:
+    nodeTypes:
+      '*': false
+  ui:
+    label: 'Document Reference'
+    icon: 'icon-link'
+
+#
+# AbstractDocumentSection
+'Ttree.Blog:AbstractDocumentSection':
+  abstract: true
+  superTypes:
+    'Ttree.Blog:BackendOnlyDocument': true
+
+#
+# DocumentSection
+'Ttree.Blog:DocumentSection':
+  superTypes:
+    'Ttree.Blog:AbstractDocumentSection': true
+  constraints:
+    nodeTypes:
+      '*': false
+  ui:
+    label: 'Document Section'
+    icon: 'icon-puzzle-piece'
+
+#
+# DocumentSection
+'Ttree.Blog:DocumentSlider':
+  superTypes:
+    'Ttree.Blog:AbstractDocumentSection': true
+  childNodes:
+    main: ~
+  constraints:
+    nodeTypes:
+      '*': false
+  ui:
+    label: 'Document Slider'
+    icon: 'icon-bullseye'
+
+#
+# DocumentSection
+'Ttree.Blog:DocumentSliderImage':
+  superTypes:
+    'Ttree.Blog:BackendOnlyDocument': true
+  childNodes:
+    main: ~
+    image:
+      type: TYPO3\Media\Domain\Model\ImageInterface
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'image'
+          position: 50
+  constraints:
+    nodeTypes:
+      '*': false
+  ui:
+    label: 'Document Slider Image'
+    icon: 'icon-picture-o'

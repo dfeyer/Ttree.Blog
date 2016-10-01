@@ -1,0 +1,14 @@
+prototype(Ttree.Blog:Backend.DocumentSelector) < prototype(Fusion:Case) {
+    documentType {
+        @position = 'before default'
+        condition = Ttree.Blog:CanRender {
+            type = ${q(node).property('_nodeType') + '.BackendDocument'}
+        }
+        type = ${q(node).property('_nodeType') + '.BackendDocument'}
+    }
+    default {
+        @position = 'end'
+        condition = TRUE
+        type = 'Ttree.Blog:Backend.Default.Document'
+    }
+}

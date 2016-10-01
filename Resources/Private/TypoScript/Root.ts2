@@ -1,0 +1,31 @@
+prototype(Ttree.Blog:CanRender).@class = 'Ttree\\Blog\\TypoScriptObjects\\CanRenderImplementation'
+
+namespace: Fusion = TYPO3.TypoScript
+
+include: Components/**/*
+include: NodeTypes/**/*
+include: Page/**/*
+
+root {
+	accessNotAuthorizedDocument {
+		@position = 'start'
+		condition = ${documentNode.context.inBackend == false && q(node).is('[instanceof Ttree.Blog:BackendOnlyDocument]')}
+		type = 'Ttree.Blog:AccessNotAuthorized.Document'
+	}
+	backendOnlyDocument {
+		@postion = 'after accessNotAuthorizedDocument'
+		condition = ${documentNode.context.inBackend == true && q(node).is('[instanceof Ttree.Blog:BackendOnlyDocument]')}
+		type = 'Ttree.Blog:Backend.DocumentSelector'
+	}
+	documentType {
+		@position = 'before default'
+		condition = Ttree.Blog:CanRender {
+			type = ${q(node).property('_nodeType') + '.Document'}
+		}
+		type = ${q(node).property('_nodeType') + '.Document'}
+	}
+	default {
+		type = 'Ttree.Blog:DefaultPage'
+		renderPath >
+	}
+}

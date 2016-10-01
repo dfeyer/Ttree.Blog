@@ -1,0 +1,16 @@
+prototype(Ttree.Blog:DocumentSection.Inline) < prototype(Fusion:Template) {
+    templatePath = 'resource://Ttree.Blog/Private/Templates/Components/DocumentSection.Inline.html'
+
+    title = Fusion:Tag {
+        tagName = 'h2'
+        content = ${q(node).property('title')}
+
+        @process.makeItEditable = TYPO3.Neos:ContentElementEditable
+    }
+
+    main = TYPO3.Neos:ContentCollection {
+        nodePath = 'main'
+    }
+
+    references = Ttree.Blog:ArticleReference.List
+}

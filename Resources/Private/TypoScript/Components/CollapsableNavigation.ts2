@@ -1,0 +1,9 @@
+prototype(Ttree.Blog:CollapsableNavigation) < prototype(TYPO3.TypoScript:Template) {
+    templatePath = 'resource://Ttree.Blog/Private/Templates/Components/CollapsableNavigation.html'
+
+    menu = Ttree.Blog:Menu
+
+    title = 'Ttree Blog'
+
+    toggleLabel = 'Toggle navigation'
+}

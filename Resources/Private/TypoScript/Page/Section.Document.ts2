@@ -1,0 +1,2 @@
+prototype(Ttree.Blog:Section.Document) < prototype(Ttree.Blog:DefaultPage) {
+}

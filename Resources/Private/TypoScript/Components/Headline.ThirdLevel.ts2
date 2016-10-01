@@ -1,0 +1,3 @@
+prototype(Ttree.Blog:Headline.ThirdLevel) < prototype(Fusion:Tag) {
+    tagName = 'h3'
+}

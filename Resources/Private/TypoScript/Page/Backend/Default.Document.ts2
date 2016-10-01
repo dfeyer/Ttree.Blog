@@ -1,0 +1,10 @@
+prototype(Ttree.Blog:Backend.Default.Document) < prototype(Ttree.Blog:DefaultPage) {
+    body.content {
+        sectionTitle = Fusion:Tag {
+            tagName = 'h1'
+            content = ${q(documentNode).property('title')}
+        }
+        title = 'Backend Only'
+        logline = 'Focus on a single section, the content will be used by the parent document'
+    }
+}

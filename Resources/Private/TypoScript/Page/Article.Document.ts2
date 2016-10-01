@@ -1,0 +1,28 @@
+prototype(Ttree.Blog:Article.Document) < prototype(Ttree.Blog:DefaultPage) {
+    body {
+        content {
+            main >
+            main = Fusion:Collection {
+                collection = ${q(node).find('[instanceof Ttree.Blog:DocumentSection]')}
+                itemRenderer = Ttree.Blog:DocumentSection.Inline
+                itemName = 'node'
+
+
+                helpTextMissingSection = Ttree.Blog:Article.HelpText.MissingSection
+                @process.helpTextMissingSection = ${q(node).find('[instanceof Ttree.Blog:AbstractDocumentSection]').count() == 0 ? this.helpTextMissingSection : value}
+
+                helpTextSectionHandling = Ttree.Blog:Article.HelpText.SectionHandling
+                @process.helpTextSectionHandling = ${q(node).find('[instanceof Ttree.Blog:AbstractDocumentSection]').count() > 0 ? this.helpTextSectionHandling + value : value}
+            }
+        }
+    }
+}
+
+prototype(Ttree.Blog:Article.HelpText.SectionHandling) < prototype(Ttree.Blog:EditorHelpText) {
+    content = 'You can manage the sections of this article from the Navigation Component on your right.'
+}
+
+prototype(Ttree.Blog:Article.HelpText.MissingSection) < prototype(Ttree.Blog:EditorHelpText) {
+    icon = 'exclamation-triangle'
+    content = 'Look like this article does not contains any section. Publish an "Article Section" bellow this document from the Navigate Component on your right'
+}

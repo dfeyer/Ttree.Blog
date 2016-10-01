@@ -1,0 +1,155 @@
+# Logline mixin
+'Ttree.Blog:LoglineMixin':
+  abstract: true
+  properties:
+    title:
+      ui:
+        inspector:
+          position: 10
+    logline:
+      type: string
+      ui:
+        label: i18n
+        reloadPageIfChanged: true
+        inspector:
+          position: 15
+          group: 'document'
+      validation:
+        'TYPO3.Neos/Validation/StringLengthValidator':
+          minimum: 1
+          maximum: 255
+
+# Title mixin
+'Ttree.Blog:TitleMixin':
+  abstract: true
+  properties:
+    title:
+      type: string
+      defaultValue: '<h1>Enter headline here</h1>'
+      ui:
+        inlineEditable: true
+        aloha:
+          'format':
+            'p': FALSE
+            'h1': true
+            'h2': true
+            'h3': true
+            'removeFormat': true
+          'link':
+            'a': true
+
+# Text mixin
+'Ttree.Blog:TextMixin':
+  abstract: true
+  properties:
+    text:
+      type: string
+      defaultValue: ''
+      ui:
+        inlineEditable: true
+        aloha:
+          placeholder: 'Start writting text, with our visitor in mind ...'
+          autoparagraph: true
+          'format':
+            'strong': true
+            'em': true
+            'u': FALSE
+            'sub': FALSE
+            'sup': FALSE
+            'del': FALSE
+            'p': true
+            'h1': FALSE
+            'h2': FALSE
+            'h3': FALSE
+            'pre': FALSE
+            'removeFormat': true
+          'table':
+            'table': FALSE
+          'list':
+            'ol': true
+            'ul': true
+          'link':
+            'a': true
+
+# Image mixin
+'Ttree.Blog:ImageMixin':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        image:
+          label: i18n
+          position: 5
+          icon: 'icon-image'
+  properties:
+    image:
+      type: TYPO3\Media\Domain\Model\ImageInterface
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'image'
+          position: 50
+    alternativeText:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'image'
+          position: 100
+    title:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'image'
+          position: 150
+
+# Image caption mixin
+'Ttree.Blog:ImageCaptionMixin':
+  abstract: true
+  properties:
+    hasCaption:
+      type: boolean
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'image'
+          position: 200
+    caption:
+      type: string
+      defaultValue: ''
+      ui:
+        inlineEditable: true
+        aloha:
+          placeholder: i18n
+          autoparagraph: true
+
+# Link mixin
+'Ttree.Blog:LinkMixin':
+  abstract: true
+  properties:
+    link:
+      type: string
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          position: 300
+          editor: 'TYPO3.Neos/Inspector/Editors/LinkEditor'
+
+# Content image mixin
+'Ttree.Blog:ContentImageMixin':
+  abstract: true
+  superTypes:
+    'Ttree.Blog:ImageMixin': true
+    'Ttree.Blog:LinkMixin': true
+    'Ttree.Blog:ImageCaptionMixin': true
+  properties:
+    link:
+      ui:
+        inspector:
+          group: 'image'

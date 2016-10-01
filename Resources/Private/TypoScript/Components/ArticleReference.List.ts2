@@ -1,0 +1,23 @@
+prototype(Ttree.Blog:ArticleReference.List) < prototype(Fusion:Tag) {
+    tagName = 'ul'
+
+    references = ${q(node).find('[instanceof Ttree.Blog:ArticleReference]')}
+    @context.references = ${this.references}
+
+    attributes {
+        class = 'nav nav-pills nav-stacked'
+    }
+
+    content = Fusion:Array {
+        header = Ttree.Blog:Headline.ThirdLevel {
+            content = 'References'
+        }
+        references = Fusion:Collection {
+            collection = ${references}
+            itemRenderer = Ttree.Blog:ArticleReference.ListItem
+            itemName = 'node'
+        }
+    }
+
+    @if.render = ${q(node).find('[instanceof Ttree.Blog:ArticleReference]').count() > 0}
+}

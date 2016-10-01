@@ -1,0 +1,11 @@
+'TYPO3.Neos:Shortcut':
+  abstract: true
+
+'TYPO3.Neos:Plugin':
+  abstract: true
+
+'TYPO3.Neos:PluginView':
+  abstract: true
+
+'Flowpack.Neos.FrontendLogin:LoginForm':
+  abstract: true

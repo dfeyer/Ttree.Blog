@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+ <site name="Blog by ttree" state="1" siteResourcesPackageKey="Ttree.Blog" siteNodeName="blog">
+  <nodes formatVersion="2.0">
+   <node identifier="3fcdfa32-068d-4487-ac72-7438f336a33f" nodeName="blog">
+    <variant sortingIndex="100" workspace="live" nodeType="Ttree.Blog:Section" version="2" removed="" hidden="" hiddenInIndex="">
+     <dimensions/>
+     <accessRoles __type="array"/>
+     <creationDateTime __type="object" __classname="DateTime">2016-08-31T09:07:53+02:00</creationDateTime>
+     <lastModificationDateTime __type="object" __classname="DateTime">2016-08-31T11:20:25+02:00</lastModificationDateTime>
+     <lastPublicationDateTime __type="object" __classname="DateTime">2016-08-31T11:20:25+02:00</lastPublicationDateTime>
+     <properties>
+      <title __type="string">Start from Scratch Workshop</title>
+      <uriPathSegment __type="string">home</uriPathSegment>
+     </properties>
+    </variant>
+    <node identifier="4f577043-c240-47ff-9974-c3b023638eb5" nodeName="main">
+     <variant sortingIndex="100" workspace="live" nodeType="TYPO3.Neos:ContentCollection" version="1" removed="" hidden="" hiddenInIndex="">
+      <dimensions/>
+      <accessRoles __type="array"/>
+      <creationDateTime __type="object" __classname="DateTime">2016-08-31T09:07:53+02:00</creationDateTime>
+      <lastModificationDateTime __type="object" __classname="DateTime">2016-08-31T09:07:53+02:00</lastModificationDateTime>
+      <properties/>
+     </variant>
+    </node>
+   </node>
+  </nodes>
+ </site>
+</root>

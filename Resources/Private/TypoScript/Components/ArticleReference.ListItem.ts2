@@ -1,0 +1,16 @@
+prototype(Ttree.Blog:ArticleReference.ListItem) < prototype(Fusion:Tag) {
+    tagName = 'li'
+
+    link = ${q(node).property('target')}
+    link.@process.convertUris = TYPO3.Neos:ConvertUris
+
+    @context.link = ${this.link}
+
+    content = Fusion:Tag {
+        tagName = 'a'
+        attributes {
+            href = ${link}
+        }
+        content = ${q(node).property('title')}
+    }
+}
